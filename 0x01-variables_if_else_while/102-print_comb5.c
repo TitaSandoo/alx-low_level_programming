@@ -1,33 +1,30 @@
 #include <stdio.h>
 
 /**
-  * main - Prints 3 combination of numbers
-  *
-  * Return: Always (Success)
-  */
+ * main - Prints all possible combinations of two two-digit numbers,
+ *        ranging from 0-99, separated by a comma followed by a space.
+ *
+ * Return: Always 0.
+ */
 int main(void)
 {
-	int c, i, k;
+	int num1, num2;
 
-	for (c = '0'; c <= '9'; c++)
+	for (num1 = 0; num1 <= 98; num1++)
 	{
-		for (i = '0'; i <= '9'; i++)
+		for (num2 = num1 + 1; num2 <= 99; num2++)
 		{
-			for (k = '0'; k <= '9'; k++)
-			{
-				if (c < i && i < k)
-				{
-					putchar(c);
-					putchar(i);
-					putchar(k);
+			putchar((num1 / 10) + '0');
+			putchar((num1 % 10) + '0');
+			putchar(' ');
+			putchar((num2 / 10) + '0');
+			putchar((num2 % 10) + '0');
 
-					if (c != '7')
-					{
-						putchar(',');
-						putchar(' ');
-					}
-				}
-			}
+			if (num1 == 98 && num2 == 99)
+				continue;
+
+			putchar(',');
+			putchar(' ');
 		}
 	}
 
