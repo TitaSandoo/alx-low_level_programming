@@ -1,33 +1,35 @@
 #include <stdio.h>
 
 /**
-  * main - Prints combination of numbers
-  *
-  * Return: Always (Success)
-  */
+ * main - Entry point
+ *
+ * Return: Always 0 (Succes)
+ */
+
 int main(void)
 {
-	int c, i;
+	int n;
+	int i;
+	int h;
 
-	for (c = '0'; c <= '9'; c++)
+	for (h = 0 ; h != 8 ; h++)
 	{
-		for (i = '0'; i <= '9'; i++)
+		for (n = h + 1 ; n != 9 ; n++)
 		{
-			if (c < i)
-			{
-				putchar(c);
-				putchar(i);
-
-				if (c != '8' || (c == '8' && i != '9'))
+			i = n + 1;
+			do {
+				putchar('0' + h);
+				putchar('0' + n);
+				putchar('0' + i);
+				if (h != 7)
 				{
 					putchar(',');
-					putchar(' ');
+					putchar(32);
 				}
-			}
+				i++;
+			} while (i != 10);
 		}
 	}
-
 	putchar('\n');
-
 	return (0);
 }
